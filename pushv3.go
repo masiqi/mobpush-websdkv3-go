@@ -1,13 +1,13 @@
 package mob_push_sdk
 
 const (
-	PUSH_PUSH_URI          = "/v3/push/createPush";
-	PUSH_GET_BY_WORKID_URI = "/v3/push/getByWorkId";
-	PUSH_GET_BY_WORKNO_URI = "/v3/push/getByWorkno";
-	PUSH_CANCEL_TASK_URI   = "/push/drop";
-	PUSH_REPLACE_TASK_URI  = "/push/replace";
-	PUSH_RECALL_TASK_URI   = "/push/recall";
-	PUSH_MULTI_URI   = "/v3/push/createMulti";
+	PUSH_PUSH_URI          = "/v3/push/createPush"
+	PUSH_GET_BY_WORKID_URI = "/v3/push/getByWorkId"
+	PUSH_GET_BY_WORKNO_URI = "/v3/push/getByWorkno"
+	PUSH_CANCEL_TASK_URI   = "/push/drop"
+	PUSH_REPLACE_TASK_URI  = "/push/replace"
+	PUSH_RECALL_TASK_URI   = "/push/recall"
+	PUSH_MULTI_URI         = "/v3/push/createMulti"
 )
 
 func (client *PushClient) Push(push Push) ([]byte, error) {
@@ -42,6 +42,15 @@ func (client *PushClient) PushByRids(workNo, title, content string, rids []strin
 	push.setWorkno(workNo)
 	push.setTitle(title).setContent(content).setTarget(TARGET_RIDS)
 	push.setRids(rids)
+	return GetHTTPClient().PostJSON(client, BASE_URL+PUSH_PUSH_URI, push)
+}
+
+func (client *PushClient) PushByRidsWithExtra(workNo, title, content string, rids []string, extra []PushMap) ([]byte, error) {
+	push := NewPushModel(client.AppKey)
+	push.setWorkno(workNo)
+	push.setTitle(title).setContent(content).setTarget(TARGET_RIDS)
+	push.setRids(rids)
+	push.setExtra(extra)
 	return GetHTTPClient().PostJSON(client, BASE_URL+PUSH_PUSH_URI, push)
 }
 
