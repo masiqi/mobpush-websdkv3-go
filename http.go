@@ -16,7 +16,7 @@ var gHTTPClient *HTTPClient
 
 func GetHTTPClient(proxyUrl *string) *HTTPClient {
 	if gHTTPClient == nil {
-		if proxyUrl != nil {
+		if proxyUrl == nil {
 			gHTTPClient = CreateHTTPClient()
 		} else {
 			gHTTPClient = CreateHTTPClientProxy(*proxyUrl)

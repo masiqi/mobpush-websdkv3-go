@@ -1,7 +1,7 @@
 package mob_push_sdk
 
 const (
-	BASE_URL = "http://api.push.mob.com/"
+	BASE_URL = "https://api.push.mob.com/"
 )
 
 type PushClient struct {
