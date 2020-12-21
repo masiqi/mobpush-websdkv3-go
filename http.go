@@ -8,12 +8,20 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"time"
 )
 
-var gHTTPClient = CreateHTTPClient()
+var gHTTPClient *HTTPClient
 
-func GetHTTPClient() *HTTPClient {
+func GetHTTPClient(proxyUrl *string) *HTTPClient {
+	if gHTTPClient == nil {
+		if proxyUrl != nil {
+			gHTTPClient = CreateHTTPClient()
+		} else {
+			gHTTPClient = CreateHTTPClientProxy(*proxyUrl)
+		}
+	}
 	return gHTTPClient
 }
 
@@ -29,6 +37,17 @@ func CreateHTTPClient() *HTTPClient {
 		Timeout: time.Second * 30,
 		Transport: &http.Transport{
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		},
+	}}
+}
+
+func CreateHTTPClientProxy(proxy string) *HTTPClient {
+	p, _ := url.Parse(proxy)
+	return &HTTPClient{client: &http.Client{
+		Timeout: time.Second * 30,
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+			Proxy:           http.ProxyURL(p),
 		},
 	}}
 }

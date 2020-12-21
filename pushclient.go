@@ -1,15 +1,16 @@
 package mob_push_sdk
 
 const (
-	BASE_URL  = "http://api.push.mob.com/"
+	BASE_URL = "http://api.push.mob.com/"
 )
 
 type PushClient struct {
-	AppKey       string
-	AppSecert	 string
-	BaseUrl      string
+	AppKey    string
+	AppSecert string
+	BaseUrl   string
+	ProxyUrl  string
 }
 
-func NewPushClient(appKey,appSecret string) *PushClient {
-	return  &PushClient{appKey, appSecret, BASE_URL}
+func NewPushClient(appKey, appSecret, proxyUrl string) *PushClient {
+	return &PushClient{appKey, appSecret, BASE_URL, proxyUrl}
 }
