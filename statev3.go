@@ -12,31 +12,31 @@ const (
 func (client *PushClient) GetStatsByWorkId(workId string) ([]byte, error) {
 	params := client.NewRequestData()
 	params["workId"] = workId
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_WORKID_URI, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_WORKID_URI, params)
 }
 
 func (client *PushClient) GetStatsByWorkIds(workIds []string) ([]byte, error) {
 	params := client.NewRequestData()
 	params["workIds"] = workIds
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_WORKIDS_URI, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_WORKIDS_URI, params)
 }
 
 func (client *PushClient) GetStatsByWorkno(workno string) ([]byte, error) {
 	params := client.NewRequestData()
 	params["workno"] = workno
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_WORKNO_URI, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_WORKNO_URI, params)
 }
 
 func (client *PushClient) GetStatsByHour(hour string) ([]byte, error) {
 	params := client.NewRequestData()
 	params["hour"] = hour
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_HOUR_URI, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_HOUR_URI, params)
 }
 
 func (client *PushClient) GetStatsByDay(day string) ([]byte, error) {
 	params := client.NewRequestData()
 	params["day"] = day
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_DAY_URI, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_DAY_URI, params)
 }
 
 func (client *PushClient) GetStatsByDevice(workId string, pageIndex, pageSize int) ([]byte, error) {
@@ -44,5 +44,5 @@ func (client *PushClient) GetStatsByDevice(workId string, pageIndex, pageSize in
 	params["workId"] = workId
 	params["pageIndex"] = pageIndex
 	params["pageSize"] = pageSize
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_DEVICE_URI, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+STATS_GET_BY_DEVICE_URI, params)
 }

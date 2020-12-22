@@ -11,24 +11,24 @@ const (
 
 func (client *PushClient) GetByRid(registrationId string) ([]byte, error) {
 	params := client.NewRequestData()
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_GET_BY_RID+"/"+registrationId, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_GET_BY_RID+"/"+registrationId, params)
 }
 
 func (client *PushClient) GetDeviceDistribution() ([]byte, error) {
 	params := client.NewRequestData()
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_GET_DIST, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_GET_DIST, params)
 }
 
 func (client *PushClient) QueryByAlias(alias string) ([]byte, error) {
 	params := client.NewRequestData()
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_QUERY_ALIAS+"/"+alias, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_QUERY_ALIAS+"/"+alias, params)
 }
 
 func (client *PushClient) UpdateAlias(alias, registrationId string) ([]byte, error) {
 	params := client.NewRequestData()
 	params["alias"] = alias
 	params["registrationId"] = registrationId
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_UPDATE_ALIAS, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_UPDATE_ALIAS, params)
 }
 
 func (client *PushClient) UpdateTags(tags []string, registrationId string, opType int) ([]byte, error) {
@@ -36,11 +36,11 @@ func (client *PushClient) UpdateTags(tags []string, registrationId string, opTyp
 	params["tags"] = tags
 	params["registrationId"] = registrationId
 	params["opType"] = opType
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_UPDATE_TAGS, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_UPDATE_TAGS, params)
 }
 
 func (client *PushClient) QueryByTags(tags []string) ([]byte, error) {
 	params := client.NewRequestData()
 	params["tags"] = tags
-	return GetHTTPClient(&client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_QUERY_TAGS, params)
+	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+DEVICE_QUERY_TAGS, params)
 }

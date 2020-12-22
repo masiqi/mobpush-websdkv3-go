@@ -8,9 +8,9 @@ type PushClient struct {
 	AppKey    string
 	AppSecert string
 	BaseUrl   string
-	ProxyUrl  string
+	ProxyUrl  *string
 }
 
-func NewPushClient(appKey, appSecret, proxyUrl string) *PushClient {
+func NewPushClient(appKey, appSecret string, proxyUrl *string) *PushClient {
 	return &PushClient{appKey, appSecret, BASE_URL, proxyUrl}
 }
