@@ -51,7 +51,7 @@ func (client *PushClient) PushByRidsWithExtra(workNo, title, content string, rid
 	push.setTitle(title).setContent(content).setTarget(TARGET_RIDS)
 	push.setRids(rids)
 	push.setExtra(extra)
-	push.PushNotify.AndroidNotify.Style = 3
+	// push.PushNotify.AndroidNotify.Style = 3
 	push.setForward(pushForward)
 	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+PUSH_PUSH_URI, push)
 }
