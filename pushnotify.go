@@ -80,3 +80,8 @@ func (push *Push) setIosNotify(iosNotify IosNotify) *Push {
 	push.PushNotify.IosNotify = &iosNotify
 	return push
 }
+
+func (push *Push) setExtra(extra []PushMap) *Push {
+	push.PushNotify.ExtrasMapList = extra
+	return push
+}

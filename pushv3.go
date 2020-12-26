@@ -45,12 +45,14 @@ func (client *PushClient) PushByRids(workNo, title, content string, rids []strin
 	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+PUSH_PUSH_URI, push)
 }
 
-func (client *PushClient) PushByRidsWithExtra(workNo, title, content string, rids []string, extra []PushMap) ([]byte, error) {
+func (client *PushClient) PushByRidsWithExtra(workNo, title, content string, rids []string, extra []PushMap, pushForward PushForward) ([]byte, error) {
 	push := NewPushModel(client.AppKey)
 	push.setWorkno(workNo)
 	push.setTitle(title).setContent(content).setTarget(TARGET_RIDS)
 	push.setRids(rids)
 	push.setExtra(extra)
+	push.PushNotify.AndroidNotify.Style = 3
+	push.setForward(pushForward)
 	return GetHTTPClient(client.ProxyUrl).PostJSON(client, BASE_URL+PUSH_PUSH_URI, push)
 }
 

@@ -67,11 +67,6 @@ func (p *Push) setRids(rids []string) *Push {
 	return p
 }
 
-func (p *Push) setExtra(extra []PushMap) *Push {
-	p.PushNotify.ExtrasMapList = extra
-	return p
-}
-
 func (p *Push) setPushAreas(pushAreas PushAreas) *Push {
 	p.PushTarget.PushAreas = &pushAreas
 	return p

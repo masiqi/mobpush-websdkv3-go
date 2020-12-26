@@ -6,3 +6,8 @@ type PushForward struct {
 	Scheme         string    `json:"scheme"`
 	SchemeDataList []PushMap `json:"schemeDataList"`
 }
+
+func (push *Push) setForward(forward PushForward) *Push {
+	push.PushForward = &forward
+	return push
+}
