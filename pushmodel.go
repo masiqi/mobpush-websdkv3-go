@@ -21,7 +21,7 @@ func (push *Push) getDefaultPushModel() *Push {
 	push.Source = "webapi"
 	push.PushTarget.TagsType = "1"
 
-	push.PushNotify.Plats = []int{1, 2}
+	push.PushNotify.Plats = []int{2}
 	push.PushNotify.Type = 1
 	push.PushNotify.IosProduction = 0
 	push.PushNotify.OfflineSeconds = 3600
