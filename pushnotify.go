@@ -4,7 +4,7 @@ type PushNotify struct {
 	TaskCron       int            `json:"taskCron"`
 	TaskTime       int64          `json:"taskTime"`
 	Plats          []int          `json:"plats"`
-	IosProduct     int            `json:"iosProduct"`
+	iosProduction  int            `json:"iosProduction"`
 	OfflineSeconds int            `json:"offlineSeconds"`
 	Content        string         `json:"content"`
 	Title          string         `json:"title"`
