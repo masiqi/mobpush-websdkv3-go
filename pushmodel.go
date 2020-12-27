@@ -23,7 +23,7 @@ func (push *Push) getDefaultPushModel() *Push {
 
 	push.PushNotify.Plats = []int{1, 2}
 	push.PushNotify.Type = 1
-	push.PushNotify.IosProduct = 0
+	push.PushNotify.IosProduction = 0
 	push.PushNotify.OfflineSeconds = 3600
 
 	//push.PushNotify.AndroidNotify.Warn = "12"
