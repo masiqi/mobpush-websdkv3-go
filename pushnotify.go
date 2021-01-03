@@ -23,8 +23,6 @@ type CustomNotify struct {
 }
 
 type AndroidNotify struct {
-	AppName string   `json:"appName"`
-	Title   string   `json:"title"`
 	Warn    string   `json:"warn"`
 	Style   int      `json:"style"`
 	Content []string `json:"content"`
@@ -32,13 +30,11 @@ type AndroidNotify struct {
 }
 
 type IosNotify struct {
-	Title            string `json:"title"`
 	SubTitle         string `json:"subtitle"`
 	Sound            string `json:"sound"`
-	Badge            string `json:"badge"`
+	Badge            int    `json:"badge"`
 	BadgeType        int    `json:"badgeType"`
 	CateGory         string `json:"category"`
-	SLIENT           int    `json:"SLIENT"`
 	SlientPush       int    `json:"slientPush"`
 	ContentAvailable int    `json:"contentAvailable"`
 	MutableContent   int    `json:"mutableContent"`
